@@ -18,7 +18,7 @@ There doesn't seem to be an easy way of removing the Boost dependency without re
 Remaining issues:
 * At least on macOS, the build fails midway through complaining about missing one of a few boost headers. If you run make a second time, it'll go through.  No idea why this happens.
 * Do all this again for Windows, somehow. (It'd be nice to use VC2015 but I'm leaning towards one of the unix toolchains.)
-
+* Test / get working on Linux. This probably _will not happen_.
 ~ k
 
 
