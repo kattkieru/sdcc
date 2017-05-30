@@ -46,7 +46,7 @@ set( SDCC_ENV_COMMAND "" )
 
 if (WIN32)
 	message( AUTHOR_WARNING "+ Building for Windows." )
-	error( "Not yet supported." )
+	message( FATAL_ERROR "Not yet supported." )
 
 elseif( UNIX AND APPLE )
 	set( SDCC_BOOTSTRAP_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/bootstrap.sh )
@@ -60,7 +60,7 @@ elseif( UNIX AND APPLE )
 
 	message( AUTHOR_WARNING "+ Building for macOS." )
 else()
-	error( "Unknown operating system. Aborting." )
+	message( FATAL_ERROR "Unknown operating system. Aborting." )
 endif()
 
 ## ensure target folders exist
