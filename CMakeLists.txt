@@ -3,17 +3,17 @@ project(gbdk3-sdcc)
 
 include(ExternalProject)
 
-set( BOOST_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../boost_1_64_0/ )
+set( BOOST_ROOT ${PROJECT_SOURCE_DIR}/../boost/ )
 set( SDCC_CPP_FLAGS -I${BOOST_ROOT} )
-set( SDCC_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/sdcc-3.6.1/sdcc )
-set( SDCC_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/.. )
+set( SDCC_SOURCE_DIR ${PROJECT_SOURCE_DIR}/sdcc-3.6.1/sdcc )
+set( SDCC_PREFIX ${PROJECT_SOURCE_DIR}/.. )
 
-message( AUTHOR_WARNING "Current CMake Source Directory: ${CMAKE_CURRENT_SOURCE_DIR}." )
+message( AUTHOR_WARNING "Current CMake Source Directory: ${PROJECT_SOURCE_DIR}." )
 message( AUTHOR_WARNING "Boost Directory: ${BOOST_ROOT}." )
 
 set( SDCC_CONFIGURE_COMMAND 
 	configure
-	--prefix=${CMAKE_CURRENT_SOURCE_DIR}/.. 
+	--prefix=${PROJECT_SOURCE_DIR}/.. 
 	--disable-mcs51-port 
 	--disable-z80-port 
 	--disable-z180-port 
@@ -49,7 +49,7 @@ if (WIN32)
 	message( FATAL_ERROR "Not yet supported." )
 
 elseif( UNIX AND APPLE )
-	set( SDCC_BOOTSTRAP_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/bootstrap.sh )
+	set( SDCC_BOOTSTRAP_SCRIPT ${PROJECT_SOURCE_DIR}/bootstrap.sh )
 	set( SDCC_SHELL "/bin/bash" )
 	set( SDCC_ENV_COMMAND "export CXXFLAGS=\"-I${BOOST_ROOT} -Wmicrosoft-anon-tag\"" )
 
